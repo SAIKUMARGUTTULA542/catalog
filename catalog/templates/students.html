@@ -1,0 +1,56 @@
+<html>
+	
+<head>
+<style type="text/css">
+	body{
+		background-color: skyblue;
+		text-align: center;
+	}
+	.section{
+		width: 400px;
+		background-color: white;
+		border-radius: 25px; 
+	}
+	.section a:hover{
+            background-color: red;
+            cursor: pointer;
+            
+        }
+</style>
+{% include "index.html" %}
+</head>
+<body>
+	<font size="15" ><marquee BGCOLOR=YELLOW HEIGHT=50 >Students of {{d.Deptname}}</marquee></font> 
+		<div align="center">
+<div class = 'section'>
+
+{% if 'username' not in session %}
+{% for i in s %}
+<p>{{i.name}}</p>
+	{% endfor %}
+{% else %}
+		<h1>{{ d.Deptname }}</h1>
+
+		<a href = '{{url_for('newstudents', dept_id =d.dept_id, stdid=s.stdid )}}'>Create student</a>
+	</br></br>
+    
+		{% for i in s %}
+		<p>{{i.name}}</p>
+	
+
+		
+	
+		<a href='{{url_for('editstudent', dept_id =d.dept_id, stdid=i.stdid ) }}' >Edit</a>
+	</br>
+	<a href='{{url_for('deletestudent', dept_id =d.dept_id, stdid=i.stdid ) }}' >Delete</a>
+</br>
+</br>
+	
+
+		{% endfor %}
+		{% endif %}
+	</div>
+</div>
+</body>
+</html>
+    

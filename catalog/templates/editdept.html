@@ -1,0 +1,41 @@
+<html>
+
+
+<head>
+<style type="text/css">
+	body{
+		background-color: skyblue;
+		text-align: center;
+	}
+	.section{
+		width: 400px;
+		background-color: white;
+		border-radius: 25px; 
+	}
+</style>
+	</head>
+
+<body>
+<div align="center">
+<div class = 'section'>
+<h1> Edit dept </h1>
+
+
+<form action="{{ url_for('editdept',dept_id = d.dept_id)}}" method = 'post'>
+
+
+	<p>Name:</p>
+		<input type ='text' size='30' name='name' placeholder = '{{d.Deptname }}' required>
+<br>
+
+<input type='submit' value='Edit'><br>
+
+
+<a href = '{{url_for('showdept')}}'> Cancel </a>
+
+</form>
+</div>
+</div>
+</body>
+
+</html>
